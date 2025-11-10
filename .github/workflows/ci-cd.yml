@@ -43,6 +43,11 @@ jobs:
           username: ${{ secrets.AZURE_USERNAME }}
           password: ${{ secrets.AZURE_PASSWORD }}
 
+      - name: Debug ACR envs
+        run: |
+          echo "Registry: ${{ secrets.AZURE_REGISTRY }}"
+          echo "Username: ${{ secrets.AZURE_USERNAME }}"
+
       - name: Tag and push image
         run: |
           docker tag $IMAGE_NAME ${{ secrets.AZURE_REGISTRY }}/$IMAGE_NAME:latest
