@@ -3,7 +3,6 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
-  pull_request:
 
 env:
   IMAGE_NAME: gitops-lab-app
