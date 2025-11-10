@@ -1,0 +1,12 @@
+{
+  "name": "gitops-lab-app",
+  "version": "1.0.0",
+  "main": "app/server.js",
+  "scripts": {
+    "start": "node app/server.js",
+    "test": "echo 'No tests yet'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
