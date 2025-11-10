@@ -43,10 +43,11 @@ jobs:
           username: ${{ secrets.AZURE_USERNAME }}
           password: ${{ secrets.AZURE_PASSWORD }}
 
-      - name: Debug ACR envs
-        run: |
-          echo "Registry: ${{ secrets.AZURE_REGISTRY }}"
-          echo "Username: ${{ secrets.AZURE_USERNAME }}"
+      - name: Check DNS resolution
+        run: nslookup ${{ secrets.AZURE_REGISTRY }} || dig ${{ secrets.AZURE_REGISTRY }}
+
+      - name: Manual Docker login
+        run: echo "${{ secrets.AZURE_PASSWORD }}" | docker login ${{ secrets.AZURE_REGISTRY }} -u ${{ secrets.AZURE_USERNAME }} --password-stdin
 
       - name: Tag and push image
         run: |
