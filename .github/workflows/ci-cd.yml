@@ -32,7 +32,7 @@ jobs:
       - name: Security scan with Trivy
         uses: aquasecurity/trivy-action@0.16.1
         with:
-          image-ref: $IMAGE_NAME
+          image-ref: ${{ env.IMAGE_NAME }}
           severity: HIGH,CRITICAL
           ignore-unfixed: true
 
